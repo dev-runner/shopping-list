@@ -1,1 +1,28 @@
 .nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
+
+.container {
+    width: 400px;
+}
+
+.table {
+    font-size: 24px;
+}
+.table tbody tr td {
+    padding: 15px 11px;
+}
+.table caption {
+    font-family: 'Lobster', cursive;
+    font-size: 50px;
+    color: #ec5a5a;
+    padding: 15px 0;
+}
+.table .close {
+    font-size: 35px;
+}
+.bg-danger {
+    padding: 15px;
+    margin-top: 20px;
+}
+#newItem {
+    width: 220px;
+}

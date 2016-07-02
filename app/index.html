@@ -5,37 +5,44 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>AngularJS app with Bootstrap</title>
-    <meta name="description" content="This is description of the app..." />
+    <title>Shopping list app</title>
+    <meta name="description" content="A simple shopping list application. You can add and remove items if you like." />
 
     <!-- css -->
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
     <link rel="stylesheet" href="app.css" />
+    
+    <!-- fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
 
     <!--[if lt IE 9]>
-            <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-            <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 </head>
 <body>
 
     <div class="container" ng-controller="ShoppingListController">
-        <div class="row">
-            <div class="col-sm-12">
+        
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <caption class="text-center">{{title}}</caption>
+                <tr ng-repeat="item in shopList">
+                    <td>{{item}}</td>
+                    <td><button type="button" class="close" aria-label="Close" ng-click="removeItem($index)"><span aria-hidden="true">&times;</span></button></td>
+                </tr>
+            </table>
+        </div>
 
-                <ul>
-                    <li ng-repeat="item in shopList">
-                        {{item}}
-                        <span ng-click="removeItem($index)">&times;</span>
-                    </li>
-                </ul>
-                <input type="text" ng-model="newItem" />
-                <button ng-click="addItem()">Add new item</button>
-                
-                
-                <span ng-show="errorText.length > 0">{{errorText}}</span>
+        <form class="form-inline text-center">
+            <div class="form-group">
+                <label class="sr-only" for="newItem">New shopping item</label>
+                <input type="text" class="form-control input-lg" id="newItem" placeholder="New shopping item" ng-model="newItem" />
             </div>
-        </div>            
+            <button type="button" class="btn btn-primary btn-lg" ng-click="addItem()">Add new item</button>
+        </form>
+                
+        <p class="bg-danger text-center" ng-show="errorText.length" ng-click="errorText=''">{{errorText}}</p>
     </div>
 	
 <!-- JS -->

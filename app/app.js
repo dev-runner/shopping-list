@@ -21,8 +21,12 @@ app.controller('ShoppingListController',['$scope', function($scope){
     
     $scope.shopList = ['Milk', 'Butter', 'Bread', 'Cheese'];
     
-    $scope.addItem = function(item){
-        $scope.shopList.push(item);
+    $scope.addItem = function(){
+        $scope.shopList.push($scope.newItem);
+    }
+    
+    $scope.removeItem = function(index){
+        $scope.shopList.splice(index,1);
     }
     
 }]);

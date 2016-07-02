@@ -24,10 +24,13 @@
             <div class="col-sm-12">
 
                 <ul>
-                    <li ng-repeat="item in shopList">{{item}}</li>
+                    <li ng-repeat="item in shopList">
+                        {{item}}
+                        <span ng-click="removeItem($index)">&times;</span>
+                    </li>
                 </ul>
                 <input type="text" ng-model="newItem" />
-                <button ng-click="addItem(newItem)">Add new item</button>
+                <button ng-click="addItem()">Add new item</button>
                 
             </div>
         </div>            

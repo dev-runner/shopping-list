@@ -1,23 +1,9 @@
 'use strict';
 
-var dependencies = ['ngRoute', 'ngAnimate', 'ngTouch', 'ui.bootstrap'];
-var app = angular.module('myApp', dependencies);
-
-
-// app configuration
-app.config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
-	
-    $locationProvider.hashPrefix('!');
-    
-    $routeProvider.otherwise({
-        redirectTo: '/'
-    });
-
-}]);
-
+var app = angular.module('ShoppingListApp', ['ui.bootstrap']);
 
 // shop list controller
-app.controller('ShoppingListController',['$scope', function($scope){
+app.controller('ShoppingListController', ['$scope','$http', function($scope, $http){
     
     $scope.title = 'My shopping list';
     
@@ -25,6 +11,16 @@ app.controller('ShoppingListController',['$scope', function($scope){
     $scope.shopList = [];
     
     $scope.errorText = '';
+    
+    $http.get('list.json').then(
+        function(response){
+            $scope.shopList = response.data.shopList;
+        },
+        function(response){
+            // something went wrong...
+        }
+    );
+    
     
     // add new item to the shopping list
     $scope.addItem = function(){

@@ -21,7 +21,6 @@ app.controller('ShoppingListController', ['$scope','$http', function($scope, $ht
         }
     );
     
-    
     // add new item to the shopping list
     $scope.addItem = function(){
         if(!$scope.newItem) return;

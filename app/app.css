@@ -25,3 +25,13 @@
 #newItem {
     width: 220px;
 }
+.footer-logo {
+	display: block;
+	width: 170px;
+	height: 24px;
+	background: no-repeat url('img/logo.png') 0 0;
+	text-indent: -99999px;
+}
+.footer-logo:hover{
+	background-position: 0 -24px;
+}

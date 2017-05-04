@@ -10,7 +10,7 @@
 
     <!-- css -->
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
-    <link rel="stylesheet" href="app.css" />
+    <link rel="stylesheet" href="css/app.css" />
     
     <!-- fonts -->
     <link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
@@ -21,30 +21,30 @@
     <![endif]-->
 </head>
 <body>
-
-    <div class="container" ng-controller="ShoppingListController">
-        
-        <div class="table-responsive">
-            <table class="table table-striped">
-                <caption class="text-center">{{title}}</caption>
-                <tr ng-repeat="item in shopList">
-                    <td>{{item}}</td>
-                    <td><button type="button" class="close" aria-label="Close" ng-click="removeItem($index)"><span aria-hidden="true">&times;</span></button></td>
-                </tr>
-            </table>
-        </div>
-
-        <form class="form-inline text-center">
-            <div class="form-group">
-                <label class="sr-only" for="newItem">New shopping item</label>
-                <input type="text" class="form-control input-lg" id="newItem" placeholder="New shopping item" ng-model="newItem" />
-            </div>
-            <button type="button" class="btn btn-primary btn-lg" ng-click="addItem()">Add new item</button>
-        </form>
-                
-        <p class="bg-danger text-center" ng-show="errorText.length" ng-click="errorText=''">{{errorText}}</p>
-        
-        <hr />
+	<div class="container" ng-controller="ShoppingListController">
+		<h1>{{title}}</h1>
+		<div class="row">
+			<div class="col-sm-12">
+				<ul class="list-group">
+					<li ng-repeat="item in shopList" class="list-group-item">
+						{{item}}
+						<button type="button" class="close" aria-label="Close" ng-click="removeItem($index)"><span aria-hidden="true">&times;</span></button>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-10 col-xs-8 text-center">
+				<label class="sr-only" for="newItem">New shopping item</label>
+				<input type="text" class="form-control input-lg" id="newItem" placeholder="New shopping item" ng-model="newItem" />
+			</div>
+			<div class="col-sm-2 col-xs-4 text-center">
+				<button type="button" class="btn btn-primary btn-lg" ng-click="addItem()">Add item</button>
+			</div>
+		</div>
+		<p class="bg-danger text-center" ng-show="errorText.length" ng-click="errorText=''">{{errorText}}</p>
+		
+		<hr />
 		<a href="http://devrunner.pl/" class="footer-logo center-block">DevRunner.pl</a>
     </div>
     
@@ -53,6 +53,6 @@
     <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
 
     <!-- App -->
-    <script src="app.js"></script>
+    <script src="js/app.js"></script>
 </body>
 </html>

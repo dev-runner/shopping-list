@@ -1,35 +1,31 @@
 .nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
 
-.container {
-    width: 400px;
-}
-.table {
-    font-size: 24px;
-}
-.table tbody tr td {
-    padding: 15px 11px;
-}
-.table caption {
+h1 {
     font-family: 'Lobster', cursive;
     font-size: 50px;
     color: #ec5a5a;
     padding: 15px 0;
+	text-align: center;
 }
-.table .close {
+.list-group .list-group-item:nth-child(odd){
+  background-color: #f6f6f6;
+}
+.list-group-item {
+	font-size: 22px;
+	padding: 15px 11px;
+}
+.list-group-item .close {
     font-size: 35px;
 }
 .bg-danger {
     padding: 15px;
     margin-top: 20px;
 }
-#newItem {
-    width: 220px;
-}
 .footer-logo {
 	display: block;
 	width: 170px;
 	height: 24px;
-	background: no-repeat url('img/logo.png') 0 0;
+	background: no-repeat url('../img/logo.png') 0 0;
 	text-indent: -99999px;
 }
 .footer-logo:hover{

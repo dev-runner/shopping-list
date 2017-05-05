@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="ShoppingListApp">
+<html lang="en" ng-app="ShoppingListApp" ng-cloak>
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,8 +7,9 @@
 
     <title>Shopping list app</title>
     <meta name="description" content="A simple shopping list application. You can add and remove items if you like." />
+	<meta name="author" content="Przemek Jazlo <przemek@devrunner.pl>" />
 
-    <!-- css -->
+	<!-- css -->
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
     <link rel="stylesheet" href="css/app.css" />
     
@@ -21,36 +22,52 @@
     <![endif]-->
 </head>
 <body>
-	<div class="container" ng-controller="ShoppingListController">
-		<h1>{{title}}</h1>
+	<div class="container" ng-controller="ShoppingListController as shopCtrl">
+		<h1>{{ shopCtrl.title }}</h1>
+		
+		<!-- shop list -->
 		<div class="row">
 			<div class="col-sm-12">
 				<ul class="list-group">
-					<li ng-repeat="item in shopList" class="list-group-item">
-						{{item}}
-						<button type="button" class="close" aria-label="Close" ng-click="removeItem($index)"><span aria-hidden="true">&times;</span></button>
+					<li ng-repeat="item in shopCtrl.storage.list" class="list-group-item">
+						{{ item }}
+						<button type="button" class="close" aria-label="Close" ng-click="shopCtrl.removeItem($index)"><span aria-hidden="true">&times;</span></button>
 					</li>
 				</ul>
 			</div>
 		</div>
+
+		<!-- add new item -->
 		<div class="row">
 			<div class="col-sm-10 col-xs-8 text-center">
-				<label class="sr-only" for="newItem">New shopping item</label>
-				<input type="text" class="form-control input-lg" id="newItem" placeholder="New shopping item" ng-model="newItem" />
+				<form ng-submit="shopCtrl.addItem()" novalidate autocomplete="off">
+					<label class="sr-only" for="newItem">New shopping item</label>
+					<input type="text" class="form-control input-lg" id="newItem" placeholder="New shopping item" ng-model="shopCtrl.newItem" />
+				</form>
 			</div>
 			<div class="col-sm-2 col-xs-4 text-center">
-				<button type="button" class="btn btn-primary btn-lg" ng-click="addItem()">Add item</button>
+				<button type="button" class="btn btn-primary btn-lg" ng-click="shopCtrl.addItem()">Add item</button>
 			</div>
 		</div>
-		<p class="bg-danger text-center" ng-show="errorText.length" ng-click="errorText=''">{{errorText}}</p>
 		
+		<!-- error message -->
+		<div class="row errorMsg">
+			<div class="col-sm-12">
+				<div uib-alert ng-show="shopCtrl.errorText.length" class="alert-danger text-center"
+					close="shopCtrl.closeAlert()">{{ shopCtrl.errorText }}</div>
+
+				<a href="#" ng-click="shopCtrl.reset()">Clear list</a>
+			</div>
+		</div>
+
 		<hr />
-		<a href="http://devrunner.pl/" class="footer-logo center-block">DevRunner.pl</a>
+		<p class="author-foot">developed by: <a href="http://devrunner.pl/" class="footer-logo">DevRunner.pl</a></p>
     </div>
     
     <!-- Angular -->
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script src="bower_components/ngstorage/ngStorage.js"></script>
 
     <!-- App -->
     <script src="js/app.js"></script>

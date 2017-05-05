@@ -55,6 +55,7 @@
             return;
         }
 
+        // close the error alert
         function closeAlert(){
             vm.errorText = '';
         }

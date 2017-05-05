@@ -3,10 +3,21 @@
 h1 {
     font-family: 'Lobster', cursive;
     font-size: 50px;
-    color: #ec5a5a;
     padding: 15px 0;
 	text-align: center;
 }
+h1 > a {
+	color: #ec5a5a;
+}
+h1 > a:hover {
+	text-decoration: none;
+	color: #cc0000;
+}
+h1 > a:active, h1 > a:visited, h1 > a:focus {
+	text-decoration: none;
+	color: #ec5a5a;
+}
+
 .list-group .list-group-item:nth-child(odd){
   background-color: #f6f6f6;
 }
@@ -17,12 +28,9 @@ h1 {
 .list-group-item .close {
     font-size: 35px;
 }
-.bg-danger {
-    padding: 15px;
-    margin-top: 20px;
-}
+
 .errorMsg {
-	padding: 10px 0;
+	margin-top: 20px;
 }
 
 /* AUTHOR FOOTER */

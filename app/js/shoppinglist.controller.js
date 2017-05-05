@@ -1,14 +1,6 @@
 (function(){ 'use strict';
 
-
-    // Module declaration with dependencies
-    angular.module('ShoppingListApp', [
-        'ui.bootstrap',
-        'ShoppingListApp.controller',
-    ]);
-
-
-    // ShoppingListController
+	// ShoppingListController
     angular.module('ShoppingListApp.controller', ['ngStorage']);
 
     angular.module('ShoppingListApp.controller')
@@ -53,6 +45,7 @@
 
         // reset the shopping list
         function reset(){
+            
             var response = $window.confirm('Do you really want to clear the list?');
             
             if(response){

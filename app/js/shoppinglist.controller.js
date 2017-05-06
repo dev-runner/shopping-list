@@ -1,4 +1,4 @@
-(function(){ 'use strict';
+(function(){ "use strict";
 
 	// ShoppingListController
     angular.module('ShoppingListApp.controller', ['ngStorage']);

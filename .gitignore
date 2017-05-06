@@ -2,6 +2,8 @@ logs/*
 !.gitkeep
 node_modules/
 app/bower_components/
+app/libs/
 tmp
 .DS_Store
 .idea
+app/*.zip

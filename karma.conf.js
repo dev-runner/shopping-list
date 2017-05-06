@@ -1,18 +1,21 @@
 //jshint strict: false
 module.exports = function(config) {
+  
   config.set({
 
     basePath: './app',
 
     files: [
-      'bower_components/angular/angular.js',
-      'bower_components/angular-bootstrap/ui-bootstrap-tpls.js',
-      'bower_components/ngstorage/ngStorage.js',
-      'bower_components/angular-mocks/angular-mocks.js',
-      'js/*.js'
+      'libs/angular/angular.js',
+      'libs/angular-bootstrap/ui-bootstrap-tpls.js',
+      'libs/ngstorage/ngStorage.js',
+      'libs/angular-mocks/angular-mocks.js',
+      'app/*.js'
     ],
 
     autoWatch: true,
+
+    colors: true,
 
     frameworks: ['jasmine'],
 
@@ -24,10 +27,13 @@ module.exports = function(config) {
       'karma-junit-reporter'
     ],
 
+    reporters: [ 'progress' ],
+
     junitReporter: {
       outputFile: 'test_out/unit.xml',
       suite: 'unit'
     }
 
   });
+
 };

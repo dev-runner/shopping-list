@@ -96,10 +96,8 @@
 		  */
 		grunt.registerTask('test', ['bower', 'jshint', 'karma:unit'] );
 
-		grunt.registerTask('build', ['jshint', 'concat:dist','uglify:dist'] );
-
-		grunt.registerTask('default', ['bower', 'jshint','karma:unit', 'concat:dist', 'uglify:dist', 'compress:dist'] );
-
+		grunt.registerTask('build', ['bower', 'jshint', 'concat:dist','uglify:dist', 'compress:dist'] );
+		
 	};
 
 })();
